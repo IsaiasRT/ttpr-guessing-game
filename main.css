@@ -8,40 +8,20 @@
   
   .guess-slot {
     font-size: 2.5rem;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     text-align: center;
-    display: inline-block;
-    border: 2px solid #000;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #000;
+    font-weight: bold;
+    background-color: #fff;
   }
   
-  /* Display user guesses inside question marks */
+  /* Dynamically replace question marks with guesses */
   .guess-slot::after {
     content: attr(data-guess);
+    font-size: 2.5rem;
     font-weight: bold;
-    color: #000;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  /* Style feedback dynamically */
-  .correct {
-    background-color: #4CAF50; /* Green for correct */
-  }
-  
-  .incorrect {
-    background-color: #FF5252; /* Red for incorrect */
-  }
-  
-  .final-guess {
-    border: 3px solid #000; /* Bold border for last guess */
-  }
-  
-  /* Reset styling when clicking reset */
-  #reset:active ~ .guess-slot {
-    background-color: transparent;
-    border: 2px solid #000;
   }
