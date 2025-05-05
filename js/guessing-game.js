@@ -18,21 +18,18 @@ class Game {
   }
 
   checkGuess() {
-    if (this.pastGuesses.length < 5) {
-      this.pastGuesses.push(this.playersGuess);
-      updateUI();
-    }
-
     if (this.playersGuess === this.winningNumber) {
       return "You Win!";
     }
-
+  
     if (this.pastGuesses.length === 5) {
+      updateUI(); // Ensure all slots update before losing
       return `You Lose. The correct number was ${this.winningNumber}`;
     }
-
+  
     return "Keep guessing!";
   }
+  
 }
 
 let game = new Game();
@@ -47,9 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateUI() {
     game.pastGuesses.forEach((guess, index) => {
-      guessesDisplay[index].textContent = guess;
+      if (index < guessesDisplay.length) {
+        guessesDisplay[index].textContent = guess; // Ensure all slots update
+      }
     });
   }
+  
 
   submitButton.addEventListener("click", () => {
     const guess = parseInt(inputField.value, 10);
