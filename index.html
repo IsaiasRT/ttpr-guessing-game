@@ -3,32 +3,32 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Guess The Number</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Game</title>
   <link rel="stylesheet" href="main.css">
 </head>
-
 <body>
-  
- 
-    <section class="stats">
+
+  <h1>Guess the Number (1-100)</h1>
+
+  <section class="game-area">
+      <input type="number" id="guess" placeholder="Enter your guess">
+      <button id="submit">Submit</button>
+      <button id="reset">Reset</button>
+      <button id="hint">Hint</button>
+      <p id="message">Make a guess!</p>
+  </section>
+
+  <section class="stats">
       <div class="info">
           <p>Number of previous attempts:</p>
-          <span id="attempts"></span>
+          <span id="attempts" data-attempts="0">0</span>
       </div>
       <div class="info">
           <p>Your previous guesses:</p>
-          <span id="guesses"></span>
+          <span id="guesses" data-guesses="? ? ? ? ?">? ? ? ? ?</span>
       </div>
   </section>
- 
-  
-  
-  <p id="message">Guess a number between 1 and 100</p>
-  
-  <button id="submit">Submit</button>
-  <button id="reset">Reset</button>
-  <button id="hint">Hint</button>
-  
 
   
   <script src="js/guessing-game.js" defer></script>
