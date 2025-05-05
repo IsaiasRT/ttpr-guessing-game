@@ -1,36 +1,41 @@
 /* Write your CSS code in this file */
- 
+
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #2d2d2d;
-    color: white;
-  }
-  
-  .container {
+    background: url(./images/R.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
     max-width: 500px;
     margin: auto;
     padding: 20px;
     background: #444;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  h1 {
+}
+
+.past-guesses-container {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
     font-size: 24px;
     margin-bottom: 10px;
-  }
-  
-  input {
+}
+
+input {
     padding: 10px;
     font-size: 16px;
     width: 80%;
     margin-bottom: 10px;
     border-radius: 5px;
     border: none;
-  }
-  
-  button {
+}
+
+button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -39,19 +44,53 @@ body {
     background-color: #ff9800;
     color: white;
     transition: 0.3s;
-  }
-  
-  button:hover {
-    background-color: #e68900;
-  }
+}
 
-  #message {
+button:hover {
+    background-color: #e68900;
+}
+
+#message {
     font-size: 18px;
     font-weight: bold;
     margin-top: 10px;
-  }
-  
-  #hint {
+}
+
+#hint {
     font-style: italic;
     color: #ffcc00;
-  }
+}
+
+/* Dynamic Question Mark Styling */
+#question-marks {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    visibility: hidden;
+}
+
+#message:not(:empty) + #question-marks {
+    visibility: visible;
+}
+
+/* Past guesses display */
+#past-guesses {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+#past-guesses li {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px;
+    width: 30px;
+    text-align: center;
+}
+
+.before {
+    color: gray;
+    font-weight: normal;
+}
