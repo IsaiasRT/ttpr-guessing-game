@@ -1,46 +1,22 @@
 /* Write your CSS code in this file */
 
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-}
-
-.container {
-    width: 300px;
-    margin: auto;
-}
-
-#message {
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-.winning {
-    color: green;
-}
-
-.losing {
-    color: red;
-}
-
-.warning {
-    color: orange;
-}
-
-.submitting {
-    font-style: italic;
-}
-
-.guess-slot {
-    font-size: 2rem;
+.guess-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .guess-slot {
+    font-size: 2.5rem;
     width: 50px;
     height: 50px;
     text-align: center;
     display: inline-block;
-    margin: 5px;
+    border: 2px solid #000;
     position: relative;
   }
   
+  /* Display user guesses inside question marks */
   .guess-slot::after {
     content: attr(data-guess);
     font-weight: bold;
@@ -49,4 +25,23 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  
+  /* Style feedback dynamically */
+  .correct {
+    background-color: #4CAF50; /* Green for correct */
+  }
+  
+  .incorrect {
+    background-color: #FF5252; /* Red for incorrect */
+  }
+  
+  .final-guess {
+    border: 3px solid #000; /* Bold border for last guess */
+  }
+  
+  /* Reset styling when clicking reset */
+  #reset:active ~ .guess-slot {
+    background-color: transparent;
+    border: 2px solid #000;
   }
