@@ -43,6 +43,7 @@ describe('Game class', () => {
 
   it('should have a playersGuess property, and a pastGuesses property ', () => {
     //playersGuess property is what will hold the player's number guess
+    
     //pastGuesses will be an array, and holds all of the player's past guesses
     expect(game.playersGuess).toBe(null);
     expect(Array.isArray(game.pastGuesses)).toBe(true);
