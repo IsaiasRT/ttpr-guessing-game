@@ -8,26 +8,17 @@
 </head>
 
 <body>
-  <div class="container">
-    <h1>Guess The Number</h1>
-    <h2>Between 1 and 100</h2>
-    <div class="guess-area">
-      <span id="hash-symbol">#</span>
-      <div id="guesses">
-        <span class="guess">?</span>
-        <span class="guess">?</span>
-        <span class="guess">?</span>
-        <span class="guess">?</span>
-        <span class="guess">?</span>
-      </div>
+  
+    <div class="container">
+        <h1>Number Guessing Game</h1>
+        <p>Guess a number between 1 and 100</p>
+        <input type="number" id="guess" min="1" max="100">
+        <button id="submit">Submit</button>
+        <button id="reset">Reset</button>
+        <button id="hint">Hint</button>
+        <p id="message"></p>
+        <ul id="past-guesses"></ul>
     </div>
-    <input id="guess" type="number" placeholder="Enter your guess">
-    <button id="submit">Submit</button>
-    <button id="reset">Reset</button>
-    <button id="hint">Hint</button>
-    <p id="message"></p>
-  </div>
-
   <script src="js/guessing-game.js" defer></script>
 </body>
 
