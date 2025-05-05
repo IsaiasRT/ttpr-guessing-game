@@ -1,43 +1,16 @@
-/* 
-
-Write your guess-game code here! Don't forget to look at the test specs as a guide. You can run the specs
-by running "testem".
-
-In this file, you will also include the event listeners that are needed to interact with your HTML file when
-a user clicks a button or adds a guess to the input field.
-
-*/
-
-/* 
-NUMBER GUESSING GAME
-Implement the missing code based on the comments
-*/
-
 // Generate random number between 1-100 (inclusive)
- 
 function generateWinningNumber() {
   return Math.floor(Math.random() * 100) + 1;
 }
 
-
-  // Return random integer
-  
-    //Use the fisher-yates Shuffle algorithm
-    //Here is a great resource on the algorithm with an animation.  Read all the way to the end!
-    //https://bost.ocks.org/mike/shuffle/
-   
-
-// Shuffle array using Fisher-Yates algorithm
+// Fisher-Yates shuffle algorithm
 function shuffle(array) {
-  let length = array.length;
-  for (let i = length - 1; i > 0; i--) {
+  for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]]; // Swap elements
   }
   return array;
 }
-
-
 
 class Game {
   constructor() {
@@ -56,7 +29,7 @@ class Game {
 
   playersGuessSubmission(num) {
     if (num < 1 || num > 100 || typeof num !== "number") {
-      throw "That is an invalid guess.";
+      throw new Error("That is an invalid guess.");
     }
     this.playersGuess = num;
     return this.checkGuess();
@@ -90,13 +63,14 @@ class Game {
   }
 }
 
+// Function to return a new game instance
 function newGame() {
   return new Game();
 }
 
-
+// DOM Setup - Implement event listeners
 document.addEventListener("DOMContentLoaded", () => {
-  let game = new Game();
+  let game = newGame();
 
   const submitButton = document.getElementById("submit");
   const resetButton = document.getElementById("reset");
@@ -115,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   resetButton.addEventListener("click", () => {
-    game = new Game();
+    game = newGame();
     messageDisplay.textContent = "Game reset! Enter a new guess.";
     inputField.value = "";
   });
