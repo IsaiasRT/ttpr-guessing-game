@@ -9,16 +9,17 @@
 
 <body>
   
-    <div class="container">
-        <h1>Number Guessing Game</h1>
-        <p>Guess a number between 1 and 100</p>
-        <input type="number" id="guess" min="1" max="100">
-        <button id="submit">Submit</button>
-        <button id="reset">Reset</button>
-        <button id="hint">Hint</button>
-        <p id="message"></p>
-        <ul id="past-guesses"></ul>
-    </div>
+  <div class="guess-container">
+    <div class="guess-slot" data-guess="?" id="slot1">?</div>
+    <div class="guess-slot" data-guess="?" id="slot2">?</div>
+    <div class="guess-slot" data-guess="?" id="slot3">?</div>
+    <div class="guess-slot" data-guess="?" id="slot4">?</div>
+    <div class="guess-slot" data-guess="?" id="slot5">?</div>
+  </div>
+
+  <div class="guess-slot" data-guess="23">?</div>
+
+  
   <script src="js/guessing-game.js" defer></script>
 </body>
 
